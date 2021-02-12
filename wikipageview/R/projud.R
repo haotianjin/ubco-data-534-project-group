@@ -27,7 +27,7 @@ get_project_ud <- function(project_title,
     project_title,
     #values in ["all-sites", "desktop-site", "mobile-site"]
     method,
-    #values in ["daily", "monthly"] is allowed for tool
+    #values in ["daily", "monthly"] is allowed for period
     period,
     #start time not earlier than 20150701
     #with format YYYYMMDD
@@ -43,6 +43,7 @@ get_project_ud <- function(project_title,
   tryCatch({
     if(response$status_code != 200) {
       cat(result$detail)
+      cat("\n")
       stop()
       #    return()
     }}, error = function(err) {

@@ -20,8 +20,7 @@ Suggests:
     devtools,
     roxygen2,
     testthat (>= 3.0.0)
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

@@ -10,8 +10,8 @@
 #' project_title refer to https://en.wikipedia.org/wiki/Main_Page (In other projects;languages)
 #' @param tool access tool,values in ("all-access", "desktop", "mobile-app", "mobile-web") are allowed for tool, with default "all-access"
 #' @param method method used to view page, values in ("all-agents", "user", "spider", "automated") are allowed for method, with default "all-agents"
-#' @param starting period start timestamp with format YYYYMMDD, for example 20200102(Jan 2nd, 2021), with the default value the timestamp of the day before yesterday
-#' @param ending period start timestamp with format YYYYMMDD, for example 20200102(Jan 2nd, 2021), with the default value the timestamp of yesterday
+#' @param starting period start timestamp with format YYYYMMDDHH, for example 2020010212(12:00, Jan 2nd, 2021), with the default value the timestamp of the day before yesterday
+#' @param ending period start timestamp with format YYYYMMDDHH, for example 2020010212(12:00, Jan 2nd, 2021), with the default value the timestamp of yesterday
 #' @param period period type should be 'daily' or 'monthly', with the default value 'daily'
 #' @export
 #' @examples
@@ -44,6 +44,7 @@ get_project_vc <- function(project_title,
   tryCatch({
     if(response$status_code != 200) {
       cat(result$detail)
+      cat("\n")
       stop()
     }}, error = function(err) {
       stop("bad request, please see above error message")

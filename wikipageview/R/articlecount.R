@@ -38,6 +38,7 @@ get_article_vc <- function(article_title,
   tryCatch({
     if(response$status_code != 200) {
       cat(result$detail)
+      cat("\n")
       stop()
       #    return()
     }}, error = function(err) {

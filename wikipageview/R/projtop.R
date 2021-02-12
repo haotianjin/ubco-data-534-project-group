@@ -54,6 +54,7 @@ get_project_top <- function(project_title,
         cat("Wrong top type, please enter 'top' or 'top-by-country'")
       }
       cat(result$detail)
+      cat("\n")
       stop()
     }}, error = function(err) {
       stop("bad request, please see above error message")

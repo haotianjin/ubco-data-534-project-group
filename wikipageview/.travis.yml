@@ -1,3 +1,9 @@
 language: R
+r:
+  - oldrel
+  - release
+  - devel
+before_install:
+  - cd wikipageview
 sudo: false
 cache: packages

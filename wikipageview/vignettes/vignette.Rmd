@@ -1,0 +1,20 @@
+---
+title: "vignette for project 1"
+author: Haotian Jin, Fengcheng Liu
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{vignette for project 1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(wikipageview)
+```

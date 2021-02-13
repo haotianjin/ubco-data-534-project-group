@@ -12,17 +12,18 @@
 #' @param starting period start timestamp with format YYYYMMDD, for example 20200102(Jan 2nd, 2021), with the default value the timestamp of the day before yesterday
 #' @param ending period start timestamp with format YYYYMMDD, for example 20200102(Jan 2nd, 2021), with the default value the timestamp of yesterday
 #' @param period period type should be 'daily' or 'monthly', with the default value 'daily'
+#' @return return a 4-column data frame
 #' @export
 #' @examples
 #' get_project_ud("zh.wikipedia", method = "desktop-site", start = "20161010", end = "20171012")
-get_project_ud <- function(project_title, 
-                           method = "all-sites", 
-                           starting = paste(substr(toString(Sys.Date()-2),1,4), substr(toString(Sys.Date()-2),6,7), substr(toString(Sys.Date()-2),9,10), sep = ""), 
-                           ending = paste(substr(toString(Sys.Date()-1),1,4), substr(toString(Sys.Date()-1),6,7), substr(toString(Sys.Date()-1),9,10), sep = ""), 
+get_project_ud <- function(project_title,
+                           method = "all-sites",
+                           starting = paste(substr(toString(Sys.Date()-2),1,4), substr(toString(Sys.Date()-2),6,7), substr(toString(Sys.Date()-2),9,10), sep = ""),
+                           ending = paste(substr(toString(Sys.Date()-1),1,4), substr(toString(Sys.Date()-1),6,7), substr(toString(Sys.Date()-1),9,10), sep = ""),
                            period = "daily"){
   url <- paste(
     "http://wikimedia.org/api/rest_v1/metrics/unique-devices",
-    #values in Wikipedia URL represents the article title            
+    #values in Wikipedia URL represents the article title
     #values from ISO language code plus .wikipedia(e.g. en.wikipedia, ca.wikipedia, zh.wikipedia)
     project_title,
     #values in ["all-sites", "desktop-site", "mobile-site"]

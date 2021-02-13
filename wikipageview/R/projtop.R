@@ -13,14 +13,15 @@
 #' @param year year time with format YYYY, for example 2020, with the default value the year of the day before yesterday
 #' @param mon month time with format MM, for example 01(January), with the default value the month of the day before yesterday
 #' @param day day time with format DD, for example 03(third), with the default value the day before yesterday
+#' @return return a top ranking data frame
 #' @export
 #' @examples
 #' get_project_top("ja.wikisource", top = "top", year = "2018", mon = "12", day = "12")
-get_project_top <- function(project_title, 
-                            top = "top", 
-                            tool = "all-access", 
-                            year = substr(toString(Sys.Date()-2),1,4), 
-                            mon = substr(toString(Sys.Date()-2),6,7), 
+get_project_top <- function(project_title,
+                            top = "top",
+                            tool = "all-access",
+                            year = substr(toString(Sys.Date()-2),1,4),
+                            mon = substr(toString(Sys.Date()-2),6,7),
                             day = substr(toString(Sys.Date()-2),9,10)){
   #start time not earlier than 20150701
   url <- paste(

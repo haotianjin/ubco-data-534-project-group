@@ -3,6 +3,7 @@
 #'
 #' @import ggplot2
 #' @param viewcount data frame entered for plotting
+#' @return return a message when try plot top ranking plot, or a plot for other data frame
 #' @export
 #' @examples
 #' plt1 <- get_project_top("ja.wikisource", top = "top", year = "2018", mon = "12", day = "12")

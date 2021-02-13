@@ -10,6 +10,9 @@ plotcount(viewcount)
 \arguments{
 \item{viewcount}{data frame entered for plotting}
 }
+\value{
+return a message when try plot top ranking plot, or a plot for other data frame
+}
 \description{
 Return a plot of a count data frame.
 This function generate a plot by data from the entered data frame.

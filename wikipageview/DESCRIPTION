@@ -2,12 +2,11 @@ Package: wikipageview
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Haotian",
+           family = "Jin",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "idealjht@gmail.com")
+Description: Wikipageview is a package that helps users to get analytical data about article pageviews of Wikipedia and its sister projects through Pageview API.
 Imports:
     tidyverse,
     httr,

@@ -27,6 +27,9 @@ project_title refer to https://en.wikipedia.org/wiki/Main_Page (In other project
 
 \item{period}{period type should be 'daily' or 'monthly', with the default value 'daily'}
 }
+\value{
+return a 4-column data frame
+}
 \description{
 Return a project unique device count of a specific period for all sites.
 This function generate a data frame contains a projet unique device count within an entered period.

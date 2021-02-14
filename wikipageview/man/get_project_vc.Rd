@@ -32,6 +32,9 @@ project_title refer to https://en.wikipedia.org/wiki/Main_Page (In other project
 
 \item{period}{period type should be 'daily' or 'monthly', with the default value 'daily'}
 }
+\value{
+return a 2-column data frame
+}
 \description{
 Return a period page view count of a specific project from wikipedia page view api.
 This function generate a data frame contains a specific project page view count within an entered period.

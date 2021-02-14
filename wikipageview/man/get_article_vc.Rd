@@ -23,6 +23,9 @@ get_article_vc(
 
 \item{period}{period type should be 'daily' or 'monthly', with the default value 'daily'}
 }
+\value{
+return a 2-column data frame
+}
 \description{
 Return a period page view count of a specific article from wikipedia page view api.
 This function generate a data frame contains a specific article page view count within an entered period.

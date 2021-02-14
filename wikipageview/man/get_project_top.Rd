@@ -28,6 +28,9 @@ project_title refer to https://en.wikipedia.org/wiki/Main_Page (In other project
 
 \item{day}{day time with format DD, for example 03(third), with the default value the day before yesterday}
 }
+\value{
+return a top ranking data frame
+}
 \description{
 Return a period page view count of a specific project top ranking from wikipedia.
 This function generate a data frame contains a specific project page view count within an entered period.

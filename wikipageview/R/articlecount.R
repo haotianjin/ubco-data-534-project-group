@@ -10,6 +10,7 @@
 #' @param starting period start timestamp with format YYYYMMDD, for example 20200102(Jan 2nd, 2021), with the default value the timestamp of the day before yesterday
 #' @param ending period start timestamp with format YYYYMMDD, for example 20200102(Jan 2nd, 2021), with the default value the timestamp of yesterday
 #' @param period period type should be 'daily' or 'monthly', with the default value 'daily'
+#' @return return a 2-column data frame
 #' @export
 #' @examples
 #' get_article_vc("Linear_algebra", "20150803", "20201002", "monthly")

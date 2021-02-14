@@ -13,14 +13,15 @@
 #' @param starting period start timestamp with format YYYYMMDDHH, for example 2020010212(12:00, Jan 2nd, 2021), with the default value the timestamp of the day before yesterday
 #' @param ending period start timestamp with format YYYYMMDDHH, for example 2020010212(12:00, Jan 2nd, 2021), with the default value the timestamp of yesterday
 #' @param period period type should be 'daily' or 'monthly', with the default value 'daily'
+#' @return return a 2-column data frame
 #' @export
 #' @examples
 #' get_project_vc("zh.wikipedia", method = "user", starting = "2021010112", period = "hourly")
-get_project_vc <- function(project_title, 
-                           tool = "all-access", 
-                           method = "all-agents", 
-                           starting = paste(substr(toString(Sys.Date()-2),1,4), substr(toString(Sys.Date()-2),6,7), substr(toString(Sys.Date()-2),9,10), substr(toString(Sys.time()-2),12,13), sep = ""), 
-                           ending = paste(substr(toString(Sys.Date()-1),1,4), substr(toString(Sys.Date()-1),6,7), substr(toString(Sys.Date()-1),9,10), substr(toString(Sys.time()-1),12,13), sep = ""), 
+get_project_vc <- function(project_title,
+                           tool = "all-access",
+                           method = "all-agents",
+                           starting = paste(substr(toString(Sys.Date()-2),1,4), substr(toString(Sys.Date()-2),6,7), substr(toString(Sys.Date()-2),9,10), substr(toString(Sys.time()-2),12,13), sep = ""),
+                           ending = paste(substr(toString(Sys.Date()-1),1,4), substr(toString(Sys.Date()-1),6,7), substr(toString(Sys.Date()-1),9,10), substr(toString(Sys.time()-1),12,13), sep = ""),
                            period = "daily"){
   url <- paste(
     "https://wikimedia.org/api/rest_v1/metrics/pageviews/aggregate",

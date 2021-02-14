@@ -1,0 +1,88 @@
+---
+title: "vignette for project 1"
+author: Haotian Jin, Fengcheng Liu
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{vignette for project 1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Intruduction
+
+Wikipageview is a package that helps users to get analytical data about article pageviews of Wikipedia and its sister projects through Pageview API. This package generally has five functions: return pageview count, pageview count by project, top 1000 in a given project, unique device count, and plotting pageview count vs. date/time.
+
+Sister projects include:
+
+- Content projects specialized by linguistic edition: Wikipedia, Wiktionary, Wikinews, Wikivoyage, Wikiquote, Wikiversity, Wikisource, Wikibooks
+- Multilingual content projects: Wikimedia Commons, Wikidata, Wikispecies, Incubator
+- "Outreach and administration" projects: Wikimedia Foundation, Wikimedia Outreach, Wikimania, Wikimedia Mailservices, Wikistats
+- "Technical and development" projects: MediaWiki, Wikitech, Phabricator, Test Wikipedia, Wikimedia Cloud Services
+
+# Quick start
+
+This section is to give users a general introduction of how to use the package.
+
+First, we need to load the **wikipageview** package:
+
+```{r setup}
+library(wikipageview)
+```
+
+Then, we can use **get_article_vc** command to get a period page view count of a specific article from wikipedia page view api. This function generate a data frame contains a specific article page view count within an entered period. Please see example below:
+
+```{r articlecount}
+p1 <- get_article_vc("Linear_algebra", "20150803", "20201002", "monthly")
+head(p1)
+```
+
+The first argument is the title that we are searching for. When using the function, if there exist space between words, please use underscore instead of space. The second argument is the starting date. The third argument is the ending date. Please use "YYYYMMDD" as the format for starting and ending date. The forth argument is user-specified period, which can be hourly, daily, monthly etc.
+
+Next, **get_project_vc** is similar to **get_article_vc**. We can get a period page view count of a specific project from wikipedia page view api. This function generate a data frame contains a specific project page view count within an entered period. Please see below for example:
+
+```{r projcount}
+p2 <- get_project_vc("en.wikiquote", method = "spider", starting = "2018051408", ending = "2019122323", period = "monthly")
+head(p2)
+```
+
+The first argument is the project title that we are looking for. The second and third arguments will be tool and method. Default for tool is all-access, and default for method is all-agents. Possible tools can be ("all-access", "desktop", "mobile-app", "mobile-web"). Possible methods include ("all-agents", "user", "spider", "automated"). The forth is the starting date. And the last argument is ending date. Please use "YYYYMMDD" as the format for starting and ending date. The forth argument is user-specified period, which can be hourly, daily, monthly etc. Daily is the default.
+
+Then we can get a period page view count of top 1000 ranked in a specific project from wikipedia through **get_project_top** command. This will return a data frame contains a specific project page view count within an entered period. Please see example below:
+
+```{r get_project_top}
+p3 <- get_project_top("wikidata", top = "top", year = "2019", mon = "12", day = "07")
+p4 <- get_project_top("ja.wikisource", top = "top-by-country", year = "2017", mon = "03", day = "11")
+head(p3)
+head(p4)
+```
+
+This function can either return a top list of a certain project or a top country list including rank and view numbers. We can set the argument "top" to be either "top" or "top-by-country". Other arguments include project_title, tool, year, mon, and day. Year, month and date follows "YY" "MM" "DD" format respectively.
+
+Function of **get_project_ud** shows a project unique device count of a specific period for all sites. This function will return a data frame contains a projet unique device count within an entered period. Please see below example:
+
+```{r get_project_ud}
+p5 <- get_project_ud("mediawiki", method = "desktop-site", start = "2018020510", end = "20180923")
+head(p5)
+```
+
+Here we can input project_title, method, starting, ending, and period. Default for method is "all-sites", and default for period is "daily". Please use "YYYYMMDD" as the format for starting and ending date.
+
+Finally, we can plot our data retrieved from above commands. (Note: top list will not be plotted since it's a character list including 1000 observations.) By using **plotcount** command, we can generate a plot from the entered pageviews count frame. Please see below example:
+
+```{r figures-side, fig.show="hold"}
+plotcount(p5)
+plotcount(p2)
+```
+
+If we plot the project unique device count data frame, the red dotted line is the underestimate index and blue dotted line will be count index with x-axis = year and y-axis = count. Graphs for other data frames will only have one black line stands for the relationship between time and count. 
+
+
+
+

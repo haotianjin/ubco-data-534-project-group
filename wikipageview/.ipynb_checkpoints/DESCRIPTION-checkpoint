@@ -1,0 +1,29 @@
+Package: wikipageview
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Haotian",
+           family = "Jin",
+           role = c("aut", "cre"),
+           email = "idealjht@gmail.com")
+Description: Wikipageview is a package that helps users to get analytical data about article pageviews of Wikipedia and its sister projects through Pageview API.
+Imports:
+    tidyverse,
+    httr,
+    jsonlite,
+    ggplot2,
+    stringr,
+    lubridate
+Suggests:
+    knitr,
+    devtools,
+    roxygen2,
+    testthat (>= 3.0.0),
+    rmarkdown
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Config/testthat/edition: 3
+VignetteBuilder: knitr
